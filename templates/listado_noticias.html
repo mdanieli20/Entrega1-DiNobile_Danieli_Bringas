@@ -11,9 +11,6 @@
 {% endblock texto_header %}
 
 {% block despues_del_header %}
-<p>
-    <a href={% url 'crear_noticia' %}>Crear Noticia</a>
-</p>
 
 <p>
     <form action={% url 'listado_noticias' %}>
@@ -26,11 +23,21 @@
     {% if listado_noticias %}
     <ul>
         {% for noticia in listado_noticias %}
-        <li>{{noticia}}</li>
+        <li>Título de la noticia: {{noticia.titulo}}</li>
+        <ul>
+            <p>{{noticia.contenido}}</p>
+        </ul>
+        <ul>
+            <p>{{noticia.fecha_creacion}}</p>
+        </ul>
         {% endfor %}
     </ul>
     {% else %}
     No se encontraron noticias.
     {% endif %}
+</p>
+
+<p>
+    <a href={% url 'crear_noticia' %}>Crear Noticia</a>
 </p>
 {% endblock despues_del_header %}

@@ -39,9 +39,9 @@ def crear_noticia(request):
 def listado_noticias(request):
     
     nombre_de_busqueda = request.GET.get('titulo')
-    
+
     if nombre_de_busqueda:
-        listado_noticias = Noticia.objects.filter(titulo__icontains=nombre_de_busqueda) 
+        listado_noticias = Noticia.objects.filter(titulo__icontains=nombre_de_busqueda)
     else:
         listado_noticias = Noticia.objects.all()
     
