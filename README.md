@@ -11,3 +11,5 @@
 4) Crear bd y migrar con el siguiente comando "python manage.py migrate"
 5) Iniciar el servidor ejecutando el siguiente comando "python manage.py runserver"
 6) Acceder a la url indicada en consola, ej: http://127.0.0.1:8000/
+
+7)
