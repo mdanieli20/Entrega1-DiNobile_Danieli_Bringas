@@ -16,7 +16,8 @@
     <div class="container">
         <a class="navbar-brand" href={% url 'crear_noticia' %}>Crear Noticia</a>
     </div>
-</nav>
+</nav> 
+
 <p>
     <form action={% url 'busqueda_noticias' %}>
         {{form}}
@@ -25,10 +26,16 @@
 </p>
 
 <p>
-    {% if listado_noticias %}
+    {% if busqueda_noticias %}
     <ul>
-        {% for noticia in listado_noticias %}
+        {% for noticia in busqueda_noticias %}
         <li>Título de la noticia: {{noticia.titulo}}</li>
+        <ul>
+            <p>{{noticia.contenido}}</p>
+        </ul>
+        <ul>
+            <p>{{noticia.fecha_creacion}}</p>
+        </ul>
         {% endfor %}
     </ul>
     {% else %}

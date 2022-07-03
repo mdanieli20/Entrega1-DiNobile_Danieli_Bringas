@@ -38,15 +38,26 @@ def crear_noticia(request):
 
 def listado_noticias(request):
     
-    nombre_de_busqueda = request.GET.get('titulo')
+    listado_noticias = Noticia.objects.all()
+  
+    form = BusquedaNoticia()
+    
+    return render(request, 'listado_noticias.html', {'listado_noticias': listado_noticias, 'form' : form})
+   
 
-    if nombre_de_busqueda:
-        listado_noticias = Noticia.objects.filter(titulo__icontains=nombre_de_busqueda)
+def busqueda_noticias(request):
+    
+    busqueda_titulo = request.GET.get('titulo')
+    print(busqueda_titulo)
+    
+    if busqueda_titulo:
+        busqueda_noticias = Noticia.objects.filter(titulo__icontains=busqueda_titulo)
     else:
-        listado_noticias = Noticia.objects.all()
+        busqueda_noticias = Noticia.objects.all()
     
     form = BusquedaNoticia()
-    return render(request, 'listado_noticias.html', {'listado_noticias': listado_noticias, 'form': form})
+    return render(request, 'busqueda_noticias.html', {'busqueda_noticias': busqueda_noticias, 'form': form})
+
 
 def nosotros(request):
     return render(request, 'nosotros.html')

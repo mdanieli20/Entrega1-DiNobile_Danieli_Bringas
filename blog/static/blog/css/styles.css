@@ -4070,7 +4070,9 @@ textarea.form-control-lg {
 .navbar-nav .dropdown-menu {
   position: static;
 }
-
+.noticias {
+    text-align: right;
+}
 .navbar-text {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;

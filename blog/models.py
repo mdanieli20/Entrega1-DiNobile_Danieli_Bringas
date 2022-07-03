@@ -3,5 +3,5 @@ from django.db import models
 
 class Noticia(models.Model):
     titulo = models.CharField(max_length=30)
-    contenido = models.CharField(max_length=300)
+    contenido = models.TextField()
     fecha_creacion = models.DateField(null=True)
