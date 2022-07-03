@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Noticias</title>
+{% endblock title %}
+
+{% block texto_header %}
+<h4>
+    Listado de Noticias
+</h4>
+{% endblock texto_header %}
+
+{% block despues_del_header %}
+<p>
+    <a href={% url 'crear_noticia' %}>Crear Noticia</a>
+</p>
+
+<p>
+    <form action={% url 'listado_noticias' %}>
+        {{form}}
+        <button>Buscar</button>
+    </form>
+</p>
+
+<p>
+    {% if listado_noticias %}
+    <ul>
+        {% for noticia in listado_noticias %}
+        <li>{{noticia}}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    No se encontraron noticias.
+    {% endif %}
+</p>
+{% endblock despues_del_header %}

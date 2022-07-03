@@ -1,4 +1,4 @@
-#Proyecto de Manuel Danieli
+#Proyecto Entrega Intermedia
   
 * Equipo  
   - Lucas Di Nobile
