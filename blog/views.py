@@ -4,8 +4,8 @@ from .models import Noticia
 from datetime import datetime
 
 # Create your views here.
-def index(request):
-    return render(request, 'index.html')
+def home(request):
+    return render(request, 'home.html')
 
 
 def crear_noticia(request):    
@@ -23,7 +23,6 @@ def crear_noticia(request):
                 titulo=data.get('titulo'),
                 contenido=data.get('contenido'),
                 fecha_creacion=fecha
-                # fecha_creacion=fecha if fecha else datetime.now()
             )
             noticia.save()
 
@@ -42,7 +41,7 @@ def listado_noticias(request):
     nombre_de_busqueda = request.GET.get('titulo')
     
     if nombre_de_busqueda:
-        listado_noticias = Noticia.objects.filter(nombre__icontains=nombre_de_busqueda) 
+        listado_noticias = Noticia.objects.filter(titulo__icontains=nombre_de_busqueda) 
     else:
         listado_noticias = Noticia.objects.all()
     
